@@ -266,5 +266,12 @@
             "}"
         ],
         "description": "A standard main function for a C++ program"
+    },
+    "static cast": {
+        "prefix": "sta",
+        "body": [
+            "static_cast<$2>($1)"
+        ],
+        "description": "Cast a value to another type."
     }
 }
