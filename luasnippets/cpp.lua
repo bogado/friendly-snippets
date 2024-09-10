@@ -1,8 +1,6 @@
 local function defname()
-    return vim.fn.expand("%:t").toupper().tr('.', '_')
+    return vim.fn.expand("%:t").toupper().tr('.', '_') .. "_INCLUDED"
 end
-
-print("hi")
 
 return {
     s({ name="Header guard", trig = "#guard", desc = "Header guard" }, {
