@@ -1,14 +1,7 @@
 local function defname()
-    return vim.fn.expand("%:t").toupper().tr('.', '_') .. "_INCLUDED"
+    return vim.fn.tr(vim.fn.toupper(vim.fn.expand("%:t")), '.', '_') .. "_INCLUDED"
 end
 
 return {
-    s({ name="Header guard", trig = "#guard", desc = "Header guard" }, {
-        t('#ifndef '), i(1, f(defname)),
-        t({""}),
-        t("#define "), ai(1),
-        t({""}),
-        i(0),
-        t({"", "#endif"})
-    })
-}, {}
+    s('#guard', { t('#ifndef '), f(defname), t({'',''}), t('#define '), f(defname), t({'',''}), i(0), t({'', '', '#endif // ' }), f(defname) })
+}
